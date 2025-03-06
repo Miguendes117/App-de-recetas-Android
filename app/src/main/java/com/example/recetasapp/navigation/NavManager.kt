@@ -11,14 +11,16 @@ import com.example.recetasapp.views.HomeView
 import com.example.recetasapp.views.RecipeDetailView
 
 @Composable
-fun NavManager(modifier: Modifier = Modifier) {
+fun NavManager(modifier: Modifier = Modifier)
+{
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = "Home", modifier = modifier) {
         composable("Home") { HomeView(navController) }
         composable(
             "RecipeDetail/{recetaId}",
             arguments = listOf(navArgument("recetaId") { type = NavType.IntType })
-        ) { backStackEntry ->
+        )
+        { backStackEntry ->
             val recetaId = backStackEntry.arguments?.getInt("recetaId") ?: return@composable
             RecipeDetailView(navController, recetaId)
         }

@@ -35,16 +35,18 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun AppScaffold() {
     Scaffold(
-        topBar = {
+        topBar =
+        {
             TopAppBar(
                 title = { Text("Recetas") },
                 colors = TopAppBarDefaults.mediumTopAppBarColors(
                     containerColor = Color.Red // Cambiar el color del banner a rojo
                 ),
-                modifier = Modifier.height(70.dp) // Ajustar la altura del banner
+                modifier = Modifier.height(85.dp) // Ajustar la altura del banner
             )
         },
-        content = { innerPadding ->
+        content =
+        { innerPadding ->
             NavManager(modifier = Modifier.padding(innerPadding))
         }
     )
@@ -52,8 +54,9 @@ fun AppScaffold() {
 
 @Preview(showBackground = true)
 @Composable
-fun DefaultPreview() {
-    RecetasAppTheme {
+fun DefaultPreview()
+{
+    RecetasAppTheme{
         AppScaffold()
     }
 }
